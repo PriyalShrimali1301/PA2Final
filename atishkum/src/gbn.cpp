@@ -133,6 +133,8 @@ void A_input(struct pkt packet) {
             }
 //            printf("SEND BASE %d\n", send_base);
             for(int i = send_base; i<=send_base+window_size-1; i++){
+                if(i>1000)
+                    return;
                 if(buffer[i].sender == NOT_SENT){
                     buffer[i].sender = SENT;
                     tolayer3(0, buffer[i].packet);
